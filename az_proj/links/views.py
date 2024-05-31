@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import AddLinkForm
 from .models import Link
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
 
 def home_view(request):
     no_discounted = 0
@@ -38,3 +40,8 @@ def home_view(request):
     }
 
     return render(request, 'links/main.html', context)
+
+class LinkDeleteView(DeleteView):
+    model = Link
+    template_name = 'links/confirm_delete.html'
+    success_url = reverse_lazy('home')
