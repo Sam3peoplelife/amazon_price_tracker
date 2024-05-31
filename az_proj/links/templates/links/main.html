@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col text-left">
+            <button class="btn btn-outline-primary">Add</button>
+            <button class="btn btn-info">Update</button>
+        </div>
+        <div class="col text-right">
+            <div>Total number of items being tracked: {{items_no}}</div>
+            <div>Discounted items: {{no_discounted}}</div>
+        </div>
+    </div>
+{% endblock content %}
