@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import AddLinkForm
 from .models import Link
 from django.views.generic import DeleteView
@@ -45,3 +45,9 @@ class LinkDeleteView(DeleteView):
     model = Link
     template_name = 'links/confirm_delete.html'
     success_url = reverse_lazy('home')
+
+def UpdatePrices(request):
+    qs = Link.objects.all()
+    for link in qs:
+        link.save()
+    return redirect('home')
